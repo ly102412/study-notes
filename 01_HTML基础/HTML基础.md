@@ -262,83 +262,93 @@ target属性可选值：
 
 ## HTML 表单
 
-- `<form>`是定义的容器，需要配合输入框、按钮等组建使用。
+ - `<form>`是定义的容器，需要配合输入框、按钮等组建使用。
 
-- 必要属性
+ - 必要属性
 	- action属性--类似于`<a>`标签中的href属性，其所输入的地址需要是服务器端的某个资源。
 	- method属性--设置当前表单的提交方式（表单行为）。
 	- GET-- 数据不安全、有大小限制。
 	- POST--一般情况下都使用这种方式。
 
-- 标准属性
+ - 标准属性
 	- id属性--设置当前标签的标示(必须是唯一的，不能重复)
     - name属性--设置当前标签的名称(可以重复)
-- 常见的表单组件
-                   
+ - 常见的表单组件               
 	- `<input>`标签
        - 必要属性：type属性--设置当前input的类型
        - 可选属性：value属性--设置当期标签的值
        - readonly属性--提供默认的内容、不允许修改。
        - display属性--不可用，针对除文本框以外的其他组件。
        - （如属性名和属性值相同，只用设置属性名不用设置属性值）
-  	
 	- input中type的属性值：
-       - 输入框：
+       
+	   - 输入框：
          - 文本框：`<input type="text">`
          - 密码框：`<input type="password">`（输入的内容是隐藏的，显示为黑点）
        - 按钮
 			- `<input type="button" value="基本的按钮">`
 			- `<input type="submitt" value="提交的按钮">`
-			- `<input type="reset" value="重置的按钮">`（显示效果一样，语义不同）
-		
-	 - 单选框
-		 	
+			- `<input type="reset" value="重置的按钮">`（显示效果一样，语义不同）	
+	 
+	- 单选框
+
+		```
             <input type="radio" name="相同的值"checked="checked">HTML
             <input type="radio" name="相同的值">CSS
 			<input type="radio" name="相同的值">JAVASCRIPT
-            默认的情况下，单选框之间没有任何联系，需要通过设置相同name属性值使他们成为一组。
-            通过设置checked属性值，默认选中当前单选框。
-			
-      - 复选框
-         	
-            <input type="checkbox" name="相同的值" checked="checked">HTML
+
+			默认的情况下，单选框之间没有任何联系，需要通过设置相同name属性值使他们成为一组。
+			通过设置checked属性值，默认选中当前单选框。
+		```			
+	- 复选框
+
+         ``` 
+			<input type="checkbox" name="相同的值" checked="checked">HTML
             <input type="checkbox" name="相同的值" >CSS
             <input type="checkbox" name="相同的值">JAVASCRIPT
             通过设置相同的name值使他们成为一组。
-
-	 - 文件域：
+		 ```
+	- 文件域：
+	 	
+		 ```
             <input type="file">
               	作用：允许在页面中上传本地文件
                    	 格式不受限制
                      只能上传一个文件
             <input type="file" multiple>
                 multiple属性：可以上传多个文件（需按住ctrl）
-                                 
-	 - 隐藏域：
+          
+		```                     
+	 
+	- 隐藏域：
 	 	
-           ``<input type="hidden">``
+           <input type="hidden">
            作用：设置一些不想被用户看到的数据内容。 
 			
 	- `<select>`标签
+	
            作用：下拉列表
            <select>标签--下拉列表的容器
            id属性--标识（唯一）
            name属性--名称
            multiple属性--表示多选，默认只能显示4个
            size属性--设置当前显示选项的个数
-     - `<option>`标签--下拉列表中的项
-           value属性--表示当前选择的值
-           select属性--表示当前选项是否被选中 
-		````                               
- 		<select name="like" id="like">
-        	<option value=""></option>(默认显示第一个option标签中的内容)
-        	<option value="a">HTML</option>
-        	<option value="b" selected="selected">CSS</option>
-        	<option value="c">JAVASCRIPT</option>
-    	</select>
-		````
-- 表格实现页面布局，表单实现登录功能
 		
+	- `<option>`标签--下拉列表中的项
+
+		```
+           value属性--表示当前选择的值
+           select属性--表示当前选项是否被选中                               
+ 			<select name="like" id="like">
+        		<option value=""></option>(默认显示第一个option标签中的内容)
+        		<option value="a">HTML</option>
+        		<option value="b" selected="selected">CSS</option>
+        		<option value="c">JAVASCRIPT</option>
+    		</select>
+		```
+
+- 表格实现页面布局，表单实现登录功能
+
 		<form action="#">
     		<table>
         		<tr>
@@ -355,11 +365,11 @@ target属性可选值：
         		</tr>
     		</table>
 		</form>
-	   
+
 
 ## 实体 (转义字符)
-- 可以使用实体来表示一些特殊符号
 
+- 可以使用实体来表示一些特殊符号
 - 常用实体:
 	- 空格  ````&nbsp;```` 
 	- 小于号<	````&lt;````
