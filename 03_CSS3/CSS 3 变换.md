@@ -1,0 +1,105 @@
+# CSS 3 变换
+
+### 2d 变换
+- 定义
+	- 让一个元素在页面中变形，其变形的方式包括移动，旋转，缩放
+- 语法
+	- transform：（transform-function）
+    - 默认值：none    
+- 分类
+	- rotate（）-- 旋转
+      - 定义 -- 通过设置一定的角度，使元素进行 2d 旋转
+      - 语法 -- transform：rotate（angle）
+      - 单位 -- deg
+      - 注：angle 指旋转角度，正数表示顺时针旋转，负数表示逆时针旋转
+    - translate（）-- 平移
+      - 定义 -- 通过设置 X 轴和 Y轴的参数，使当前元素移动
+      - 分类
+        - translateX（）-- 仅水平方向移动
+        - translateY（）-- 仅垂直方向移动
+        - translate（x，y）-- 水平和垂直同时移动
+        - 注：如果只写一个参数，第二个默认是 0，即仅在水平方向上移动
+    - scale（）-- 缩放
+       - 定义 -- 设置元素的缩放程度
+       - 分类
+         - scaleX（）-- 仅水平方向缩放
+         - scaleY（）-- 仅垂直方向缩放
+         - scale（x，y）-- 水平和垂直同时缩放
+         - 注：没有单位，x y 设置的是倍数
+    - skew（）-- 扭曲/倾斜
+       - 定义 -- 设置元素的倾斜
+       - 分类
+         - skewX（）-- 仅水平方向上扭曲变形（正值 -- 逆时针）
+         - skewY（）-- 仅垂直方向上扭曲变形（正值 -- 顺时针）
+         - skew（x，y）-- 使元素在水平方向和垂直方向上扭曲变形
+         - 注：单位为 deg，0 deg 与 180 deg 效果一样
+- 变换基点
+    - 定义
+	    - 变换元素的基准点
+    - 语法
+	    - transform-origin：水平方向  垂直方向
+    - 参数说明
+	    - 可以为百分比也可以为 px 值
+    - 默认值
+        - rotate -- 几何中心
+        - skew -- 几何中心
+        - scale -- 几何中心
+        - translate -- 本身
+	
+- 2d变化多组合
+	- 执行顺序: 从右往左. 
+	- 只认最初点和最终点.并以组合变换形式进行变换
+	- 当translate位移在最左时, 位移位置不受变化
+	- 当translate位移在最右时, 位移位置受矩阵计算影响
+	- transform多组合有rotate切换时, 变换个数和变换种类以及书写顺序必须一致. 否则过渡会失效
+
+### 3d 变换
+- rotate 属性
+	- rotateX（）-- 指定对象在 X 轴上旋转的角度
+    - rotateY（）-- 指定对象在 Y 轴上旋转的角度
+	- rotateZ（）-- 指定对象在 Z 轴上旋转的角度
+- translate 属性
+    - translateZ（）-- 指定对象在 Z 轴上平移
+    - translate3d（）-- 指定对象在 X、Y、Z 轴上平移
+- scale 属性
+    - scaleZ（）-- 指定对象在 Z 轴缩放
+    - scale3d（）-- 同时设置 X、Y、Z 轴的缩放
+    - 注：如果只设置scaleZ(number)，你会发现元素并没有被扩大或压缩，scaleZ(number)需要和translateZ(length)配合使用，number乘以length得到的值，是元素沿Z轴移动的距离，从而使得感觉被扩大或压缩 
+- 景深
+	- 景深就是我们的肉眼距离显示器的距离，景深越大，元素离我们越远，效果就不好，在我们CSS3中，perspective用于激活一个3D空间，属性值就是景深大小（默认none无景深）
+	- 应用景深的元素称为“舞台元素”，舞台元素的所有后代元素都会受影响，（如果后代元素中也添加了perspective属性，效果会叠加而不是覆盖）
+	- 语法
+		- transform:perspective(depth)
+			- depth 的默认值是 none，可以设置为一个长度值，这个长度是沿着Z轴距离坐标原点的距离。
+			- 必须放在 transform 属性的首位，放在其他位置会被忽略
+			- 不建议使用
+		-  perspective：depth
+			-  depth的默认值是none，可以设置为一个长度值，这个长度是沿着Z轴距离坐标原点的距离。
+			-  建议使用
+	- 景深位置
+		- 通过设置 X, Y 轴的坐标来确定的从那个点来看这个元素
+		- 语法
+			- perspective-origin
+			- 值
+				- x-position（百分比、长度值、left、center、right）
+				- y-position（百分比、长度值、left、center、right）
+	- 景深叠加
+		- 设置多个景深会进行叠加
+	- 灭点
+		- 透视的消失点
+		- 注：景深越大,灭点越远,元素的变形越小；景深越小,灭点越近,元素的变形越大
+- 3d 舞台
+	- 语法
+		- transform-style
+	- 指定了子元素如何在空间中展示
+	- 有两个属性值：flat（默认）和preserve-3d
+		- flat 表示所有子元素在2D平面呈现
+		- preserve-3d 表示所有子元素在3D平面呈现
+	
+- 隐藏背面
+	- 语法
+		- backface-visibility
+	- 用来设置是否显示元素的背面，默认是显示的
+	- 有两个属性
+		- visible（默认值）
+		- hidden

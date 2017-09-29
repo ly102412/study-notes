@@ -1,0 +1,16 @@
+# Buffer 缓冲区
+- Buffer 和数组类似，都是通过索引来操作元素的
+- 不同的是 Buffer 中保存的是二进制数据，而且 Buffer 是直接操作系统底层的内存，所以性能比较好
+- 在 Node 中会大量使用 Buffer 进行数据的交互
+- 在 Buffer 中每个元素的大小为 8 位（1 和 0 一共 8 个），Buffer 的每一个元素占用 1 字节的内存
+- 创建一个指定大小的 Buffer
+	- var buf = Buffer.alloc（长度）
+    - var buf = Buffer.allocUnSafe（长度）
+- 向 Buffer 中填充数据
+    - buf.fill（0）;
+- 将一个字符串转换为 Buffer
+    - var buf = Buffer.from（字符串）;
+- 将一个 Buffer 转换为字符串
+    - var str = buf.toString（）;
+- 通过索引操作 Buffer 中的元素
+     - buf[ index ] = 11; 
